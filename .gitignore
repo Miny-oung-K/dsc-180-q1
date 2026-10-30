@@ -1,0 +1,19 @@
+# Local credentials and host-managed state
+.env
+.env.*
+!.env.example
+.openai/
+.codex/
+.DS_Store
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+
+# Private inputs and generated research artifacts
+**/data/private/
+**/research/results/
+*.wav
+*.f32
+*.zip
+*.tar.gz
