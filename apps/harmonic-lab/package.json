@@ -1,0 +1,13 @@
+{
+  "name": "harmonic-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Microphone sound exploration and automatic harmonic vowel synthesis",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node tools/serve.cjs",
+    "test": "node --test"
+  }
+}

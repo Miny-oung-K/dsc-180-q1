@@ -1,0 +1,22 @@
+name: Harmonic Lab tests
+on:
+  push:
+    paths:
+      - 'apps/harmonic-lab/**'
+      - '.github/workflows/harmonic-lab-tests.yml'
+  pull_request:
+    paths:
+      - 'apps/harmonic-lab/**'
+      - '.github/workflows/harmonic-lab-tests.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+        working-directory: apps/harmonic-lab
