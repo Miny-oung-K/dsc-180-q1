@@ -40,3 +40,11 @@ For a real-device test: record a comfortable held vowel, analyze it, inspect the
 ## 6. Hosting
 
 The app is static HTML/JavaScript. It runs under localhost for development or HTTPS for hosted microphone access. Its current deployment is managed separately through Sites. Host-specific manifests, source credentials, and access policy are not copied into this GitHub repository. GitHub Actions only runs tests; no workflow deploys or changes the live site.
+
+## Drawn spectrum filter
+
+Draw a frequency-dependent amplitude response over the synthesized sound spectrum. The spectrum uses the exact Fourier components of the additive sine-wave recipe, rather than an FFT of a finite sampled window. Coincident, equal-phase components are summed before plotting. Blue peaks show the original spectrum; green peaks show the filtered result; the orange line is the retained amplitude from 0 to 100 percent. The log-like frequency axis includes zero. Changing the visible frequency range preserves the full 0–20 kHz curve.
+
+The filter multiplies each tone amplitude by its response at that frequency. Playback and WAV exports retain the original amplitude sum as their normalization denominator, so attenuation is not automatically undone. Smooth live gain transitions reduce clicks. It changes magnitude only, leaving frequency and phase unchanged; it cannot add components absent from the input. Low-pass and high-pass presets, reset, bypass, touch drawing, and a numeric narrow-band alternative are included. The combined waveform reflects the filter. The lowest-tone comparison, microphone recordings, and automatic vowel reference preview remain unfiltered; use the main mix/export for a filtered vowel recipe.
+
+Run `npm test` in `apps/harmonic-lab`. The filter tests cover harmonic rejection, stroke direction, preset behavior, bypass/reset, and export normalization including silence. Drawing and live playback were also checked in the local browser preview.
