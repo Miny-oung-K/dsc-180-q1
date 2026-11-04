@@ -12,3 +12,10 @@ During development, a recording-upload prototype was used to verify private refe
 Additional offline experiments explored designed Korean vowel spectra, extracted harmonic strengths from private recordings, and compared 100 Hz and 200 Hz synthesis. This repository retains the algorithms and prototype settings, not the personal inputs or generated voice-derived artifacts.
 
 The imported commits document real implementation phases; they are not the original hosted-source Git repository. That repository and its deployment credentials remain separate. The final documentation and reusable command-line workflow were added when preparing this course repository.
+
+## Subsequent updates
+
+5. **Drawable frequency filter:** draw a 0–100% magnitude response over the synthesized Fourier components; display before/after spectral peaks; update waveform and playback live; preserve attenuation in WAV exports. Added low-pass/high-pass presets, bypass, reset, touch/pen drawing, numeric band controls, and three filter regression tests (nine app tests total).
+6. **Dashboard-first layout:** moved the intact automatic vowel-synthesis section below the microphone explorer, so the manual frequency controls and waveform appear first. Existing control IDs and text were preserved.
+
+The app source and tests were checked against the hosted-source checkout when synchronizing this documentation. Personal recordings, reflective assignment answers, and conversation transcripts remain excluded.
