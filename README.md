@@ -6,7 +6,9 @@ Course projects and reproducible technical workflows.
 |---|---|---|
 | Harmonic Lab | [app/harmonic-lab](https://github.com/Miny-oung-K/dsc-180-q1/tree/app/harmonic-lab) | Frequency mixer, microphone sound explorer, WAV recording/export, and automatic vowel synthesis |
 
-Switch to the app branch to view its source, tests, research workflow, and documentation:
+| Between — Mouth Sounds | [app/between-mouth-sounds](https://github.com/Miny-oung-K/dsc-180-q1/tree/app/between-mouth-sounds) | Two mouth recordings, continuous sound morphing, local persistence, Start over, and synthetic audio tests |
+
+Switch to an app branch to view its source, tests, research workflow, and documentation:
 
 ```sh
 git switch app/harmonic-lab
