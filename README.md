@@ -8,6 +8,9 @@ Course projects and reproducible technical workflows.
 | Between — Mouth Sounds | [app/between-mouth-sounds](https://github.com/Miny-oung-K/dsc-180-q1/tree/app/between-mouth-sounds) | Two mouth recordings, continuous sound morphing, local persistence, Start over, and synthetic audio tests |
 | Air Violin — Sound Sculptor | [app/air-violin](https://github.com/Miny-oung-K/dsc-180-q1/tree/app/air-violin) | Camera-controlled violin, clickable strings and chords, harmonic mixer, and musical note trail |
 
+## Contribution Statement
+All three websites were created through prompting on ChatGPT/Codex. My contribution included defining the website's purpose, writing prompts, testing the website, and providing feedback to refine its behavior. ChatGPT generated the website's code, including the interface, audio-processing algorithms, automated tests, and tehcnical documentation.
+
 # Harmonic Lab — DSC 180 Quarter 1 Project
 
 Harmonic Lab is a browser application for investigating sound through sine-wave synthesis, harmonics, microphone recordings, and frequency filtering. Users can adjust frequencies and amplitudes, visualize waveforms and spectra, reconstruct a recorded vowel using harmonics, and draw a filter to change the synthesized sound.
