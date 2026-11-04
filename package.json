@@ -1,0 +1,1 @@
+{"name":"between-mouth-sounds","version":"1.0.0","private":true,"type":"module","scripts":{"test":"node tests/test-mouth.mjs && node tests/test-voice.mjs"}}
