@@ -4,14 +4,15 @@ Course projects and reproducible technical workflows.
 
 | Project | Branch | Contents |
 |---|---|---|
-| Harmonic Lab | [app/harmonic-lab](https://github.com/Miny-oung-K/dsc-180-q1/tree/app/harmonic-lab) | Frequency mixer, microphone sound explorer, WAV recording/export, and automatic vowel synthesis |
-| Between — Mouth Sounds | [app/between-mouth-sounds](https://github.com/Miny-oung-K/dsc-180-q1/tree/app/between-mouth-sounds) | Two mouth recordings, continuous sound morphing, local persistence, Start over, and synthetic audio tests |
-| Air Violin — Sound Sculptor | [app/air-violin](https://github.com/Miny-oung-K/dsc-180-q1/tree/app/air-violin) | Camera-controlled violin, clickable strings and chords, harmonic mixer, and musical note trail |
+| Harmonic Lab | [app/harmonic-lab](https://github.com/Miny-oung-K/dsc-180-q1/tree/app/harmonic-lab) | This is an interactive website for creating, visualizing, recording, and filtering sounds to explore how frequencies and harmonics shape waveforms and vowel sounds. |
+| Air Violin | [app/air-violin](https://github.com/Miny-oung-K/dsc-180-q1/tree/app/air-violin) | This website implements a camera-controlled electric violin with a harmonic mixer |
+| Sound Interpolation Explorer | [app/between-mouth-sounds](https://github.com/Miny-oung-K/dsc-180-q1/tree/app/between-mouth-sounds) | This website lets users record two different sounds and move a slider to synthesize a continuous sound between them. |
+
 
 ## Contribution Statement
 All three websites were created through prompting on ChatGPT/Codex. My contribution included defining the website's purpose, writing prompts, testing the website, and providing feedback to refine its behavior. ChatGPT generated the website's code, including the interface, audio-processing algorithms, automated tests, and tehcnical documentation.
 
-# Harmonic Lab — DSC 180 Quarter 1 Project
+# Harmonic Lab
 
 Harmonic Lab is a browser application for investigating sound through sine-wave synthesis, harmonics, microphone recordings, and frequency filtering. Users can adjust frequencies and amplitudes, visualize waveforms and spectra, reconstruct a recorded vowel using harmonics, and draw a filter to change the synthesized sound.
 
@@ -30,15 +31,7 @@ Run the remaining application commands from this directory.
 
 No external dataset is required to run the application or its automated tests.
 
-Users generate data by entering frequencies and amplitudes. For the vowel experiments, users record their own voice through the application's microphone controls. The website accepts microphone recordings only; it does not have a recording-upload feature.
-
-To collect vowel data:
-
-1. Open the application using the instructions below.
-2. Scroll to **Automatic vowel synthesis**.
-3. Press **Record a vowel** and allow microphone access.
-4. Hold a vowel steadily in a quiet room.
-5. Analyze the recording and download the original recording, synthesized WAV, and analysis/settings JSON.
+Users record their own voice through the application's microphone controls.
 
 Audio processing takes place locally in the browser. Recordings are temporary until downloaded and may be lost when the page closes or a new recording is made. Downloaded files are saved to the location selected by the browser.
 
@@ -51,7 +44,6 @@ Personal voice recordings are not included in this public repository. To keep lo
 - Node.js version 20 or newer, including npm.
 - A current browser supporting Web Audio, AudioWorklet, Web Workers, and microphone access.
 - A microphone for recording experiments.
-- Headphones are recommended when comparing sounds.
 
 The application uses built-in browser and Node.js functionality. No third-party JavaScript packages, `npm install`, or build step are required.
 
@@ -89,18 +81,9 @@ PORT=8001 npm run dev
 
 Then open http://127.0.0.1:8001.
 
-
-## 5. Reproducibility and limitations
-
-The automated tests provide repeatable checks using known synthetic inputs. Microphone experiments reproduce the procedure, but new recordings will not produce identical numerical results.
-
-Automatic vowel synthesis uses a steady harmonic approximation. It does not reconstruct all breath noise, changing articulation, or the opening glide in ㅠ. Pitch estimates can fail on noisy or unstable recordings.
-
-The drawn filter only reduces existing frequency components. It cannot create frequencies absent from the starting sound. It affects the main synthesized mix; original microphone recordings and the automatic vowel reference preview remain unfiltered.
-
 Further technical details are available in `docs/workflow.md`, `docs/development.md`, and `docs/references.md` at the repository root on this branch.
 
-## Air Violin — Sound Sculptor
+# Air Violin
 
 Air Violin is a browser-based musical instrument with camera gesture controls, clickable violin strings, and an adjustable harmonic mixer. It generates sound through additive synthesis: combining a fundamental frequency with seven upper harmonics.
 
@@ -119,7 +102,7 @@ cd apps/air-violin
 
 No external dataset is required. The instrument generates audio in the browser.
 
-Camera mode uses live webcam frames to identify hand and facial gestures. These frames are processed on the user's device and are not recorded, uploaded, or saved. Musical note history is stored temporarily in browser memory and is cleared when the page reloads.
+Live webcam frames are processed on the user's device and are not recorded, uploaded, or saved. Musical note history is stored temporarily in browser memory and is cleared when the page reloads.
 
 The application automatically downloads the following resources when needed:
 
@@ -138,9 +121,7 @@ Install:
 - **Git**, used to obtain the source code.
 - A modern browser that supports Web Audio, WebAssembly, Web Workers, and webcam access, such as a recent version of Chrome or Edge.
 
-A webcam is required only for camera mode. Clickable-string mode works without one.
-
-The project uses HTML, CSS, and JavaScript without a build step. No Python packages or npm packages need to be installed. A conda environment or Docker container is not required.
+A webcam is required.
 
 Check that the required command-line tools are available:
 
@@ -150,8 +131,6 @@ node --version
 npm --version
 git --version
 ```
-
-On Windows, if `python3` is unavailable, use the `py -3` command in its place.
 
 ### 4. Run the application
 
@@ -189,31 +168,11 @@ From `apps/air-violin`, run:
 npm run check
 ```
 
-This checks JavaScript syntax and runs tests covering:
-
-- Note frequencies and string-position calculations.
-- Musical staff pitch mapping.
-- Harmonic amplitude mixtures and normalization.
-- Polyphonic voice creation, release, and stopping.
-- The normal → harmonic → off selection cycle.
-- Top-to-soft and bottom-to-bright timbre mapping.
-- Smoothing and preservation of the fundamental frequency.
-
 The command should exit successfully and print `PASS` messages.
 
-These tests validate calculations and audio-control logic. They do not replace a live webcam test or a listening check.
+# Sound Interpolation Explorer
 
-### 7. Limitations
-
-Gesture recognition depends on lighting, camera framing, and hand visibility. The sound is synthesized and violin-inspired; it is not a physical simulation of a violin. The harmonic-touch feature approximates an octave harmonic by raising pitch and reducing upper partials.
-
-The musical staff is a temporary pitch sketch, not an exported score or a measurement of note duration.
-
-Third-party libraries, models, and fonts require network access. The MediaPipe library version is pinned, but externally hosted resources may become unavailable.
-
-# Between: Mouth Sound Morphing
-
-Between is a browser-based application that records two mouth-made sounds and synthesizes a continuous sound between them. Moving a slider changes the synthesized sound’s characteristics.
+The Sound Interpolation Explorer is a browser-based application that records two mouth-made sounds and synthesizes a continuous sound between them. Moving a slider changes the synthesized sound’s characteristics.
 
 ## 1. Access the Code
 
@@ -234,13 +193,6 @@ git checkout 81edf5f54e5d4d1db73d6be33f40a5790652eed7
 ## 2. Data Access and Storage
 
 No external dataset or API key is required.
-
-For interactive use, users provide their own data by recording two mouth sounds through a microphone or uploading audio recordings. For example:
-
-- Sound A: a sustained “AH”
-- Sound B: a sustained “MM”
-
-Record each sound for approximately 1–2 seconds. For this example, use a similar pitch and microphone distance for both recordings.
 
 Recordings and their analysis are stored locally in the browser using IndexedDB. They are not uploaded to a server or included in this repository. If browser storage is unavailable, recordings remain available only while the tab is open.
 
@@ -306,27 +258,4 @@ node tests/test-mouth.mjs
 node tests/test-voice.mjs
 ```
 
-The tests check that:
-
-- Voiced sounds, hisses, and clicks can be analyzed.
-- Silent recordings are rejected.
-- The synthesizer produces finite, sustained output.
-- Slider changes work for voiced and unvoiced sound pairs.
-- Adding silence around a synthetic vowel does not materially change its extracted characteristics.
-- The synthetic AH-to-MM transition progressively reduces the ratio of upper-harmonic energy to lower-harmonic energy.
-
 A successful run prints a `PASS` message and a JSON summary containing `"result":"PASS"`, then exits successfully.
-
-These tests generate their inputs in memory and print their results to the terminal. They do not create output audio files.
-
-## 6. Method and Limitations
-
-The application selects an audible section of each recording and builds a sustained sound model.
-
-For two voiced sounds, it estimates pitch and harmonic amplitudes, interpolates those characteristics, and synthesizes a single harmonic sound.
-
-For pairs containing an unvoiced sound, it analyzes spectral energy and moves corresponding frequency samples between the two sound models.
-
-The output is a synthesized approximation. It does not simulate the physical mouth, reproduce complete sentences, or preserve the recordings’ original timing. The slider endpoints are sustained reconstructions rather than exact recording replays.
-
-The automated tests verify signal-processing behavior. They do not establish that every intermediate sound is perceptually realistic. Microphone permissions, browser storage, reload behavior, and the reset button require separate browser checks.
