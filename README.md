@@ -10,7 +10,7 @@ Course projects and reproducible technical workflows.
 
 
 ## Contribution Statement
-All three websites were created through prompting on ChatGPT/Codex. My contribution included defining the website's purpose, writing prompts, testing the website, and providing feedback to refine its behavior. ChatGPT generated the website's code, including the interface, audio-processing algorithms, automated tests, and tehcnical documentation.
+All three websites were created through prompting on ChatGPT's GPT-6.1 Sol Light. My contribution included defining the website's purpose, writing prompts, testing the website, and providing feedback to refine its behavior. ChatGPT generated the website's code, including the interface, audio-processing algorithms, automated tests, and technical documentation. All files within the three project branches were generated through AI prompting, including the website source code, supporting files, and instructions for running and reproducing each website written below.
 
 # Harmonic Lab
 
