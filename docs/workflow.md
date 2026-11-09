@@ -48,3 +48,9 @@ Draw a frequency-dependent amplitude response over the synthesized sound spectru
 The filter multiplies each tone amplitude by its response at that frequency. Playback and WAV exports retain the original amplitude sum as their normalization denominator, so attenuation is not automatically undone. Smooth live gain transitions reduce clicks. It changes magnitude only, leaving frequency and phase unchanged; it cannot add components absent from the input. Low-pass and high-pass presets, reset, bypass, touch drawing, and a numeric narrow-band alternative are included. The combined waveform reflects the filter. The lowest-tone comparison, microphone recordings, and automatic vowel reference preview remain unfiltered; use the main mix/export for a filtered vowel recipe.
 
 Run `npm test` in `apps/harmonic-lab`. The filter tests cover harmonic rejection, stroke direction, preset behavior, bypass/reset, and export normalization including silence. Drawing and live playback were also checked in the local browser preview.
+
+## White-noise mixing
+
+The dashboard includes a 0–1 white-noise amplitude slider, initially zero. A seeded two-second 44.1 kHz noise texture is shared by live playback, waveform samples, and WAV exports. It is added after the harmonic filter; the harmonic spectrum intentionally excludes this noise layer. The lowest-tone and automatic-vowel reference comparisons remain unchanged. Noise-only playback is supported by disabling all tones. Audio is normalized by the sum of the original tone amplitudes plus the noise amplitude; live changes use short gain transitions, and stop/visibility handling stops the noise source. The noise texture has approximately zero mean and uniform bounded samples; it is not a recording.
+
+Two additional tests verify noise statistics and broadband content, live gain changes, noise-only export, and source cleanup (11 tests total). No new runtime dependencies are required.
