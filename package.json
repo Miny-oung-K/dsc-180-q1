@@ -1,1 +1,9 @@
-{"name":"between-mouth-sounds","version":"1.0.0","private":true,"type":"module","scripts":{"test":"node tests/test-mouth.mjs && node tests/test-voice.mjs"}}
+{
+  "name": "between-mouth-sounds",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/test-mouth.mjs && node tests/test-voice.mjs && node tests/test-plane.mjs && node tests/test-trajectory.mjs && node tests/test-recording-flow.mjs"
+  }
+}
