@@ -4,6 +4,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node tests/test-mouth.mjs && node tests/test-voice.mjs && node tests/test-plane.mjs && node tests/test-trajectory.mjs && node tests/test-recording-flow.mjs"
+    "test": "node tests/test-mouth.mjs && node tests/test-voice.mjs && node tests/test-plane.mjs && node tests/test-trajectory.mjs && node tests/test-recording-flow.mjs && node tests/test-smooth-field.mjs && node tests/test-hand-features.mjs && node tests/test-hand-flow.mjs"
   }
 }
